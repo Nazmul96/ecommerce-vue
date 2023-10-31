@@ -1,6 +1,13 @@
 <script setup>
+import router from '../../router/index.js';
 import Button from '../common/Button.vue';
+import {ref} from 'vue'
+import { authStore } from '../../store/authStore';
+const auth = authStore;
 
+
+const username = ref('')
+const password =  ref('')
 
 </script>
 
@@ -16,13 +23,13 @@ import Button from '../common/Button.vue';
                         <label for="email" class="block mb-2 font-medium">Your email</label>
                         <input autocomplete="off" type="email" name="email" id="email"
                             class="bg-white border border-borderLight focus:border-borderDark rounded block w-full p-2.5"
-                            placeholder="name@company.com">
+                            placeholder="name@company.com" v-model="username">
                     </div>
 
                     <div>
                         <label for="password" class="block mb-2 font-medium">Password</label>
                         <input autocomplete="off" type="password" name="password" id="password" placeholder="••••••••"
-                            class="bg-white border border-borderLight focus:border-borderDark rounded block w-full p-2.5">
+                            class="bg-white border border-borderLight focus:border-borderDark rounded block w-full p-2.5" v-model="password">
                     </div>
 
                     <div class="flex justify-between items-center">
@@ -34,7 +41,7 @@ import Button from '../common/Button.vue';
                         </div>
                         <a href="#" class="font-medium text-blue-600 hover:underline">Lost Password?</a>
                     </div>
-                    <button class="btn btn-secondary w-full">Login to your account</button>
+                    <button type="button" class="btn btn-secondary w-full" @click="auth.authenticate(username,password)">Login to your account</button>
                     <p> Not registered yet?
                         <router-link to="/registration" class="font-semibold text-secondary underline">
                             Create an account
