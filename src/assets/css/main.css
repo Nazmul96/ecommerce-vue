@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+}
+
+
+@layer base {
+    body {
+        @apply font-primary text-sm text-body
+    }
+
+    a, button, input[type="radio"], input[type="checkbox"] {
+        @apply cursor-pointer
+    }
+
+    a, button, input {
+        @apply transition-all duration-300
+    }
+
+    a:hover {
+        @apply text-primary
+    }
+
+    input {
+        @apply outline-none
+    }
+}
+
+@layer components {
+    /* main {
+        @apply min-h-screen
+    } */
+    
+    .custom-container {
+        @apply max-w-[1320px] px-4 m-auto
+    }
+    .page-spacing {
+        @apply py-10 lg:py-14
+    }
+    .section-padding {
+        @apply py-10 lg:py-12
+    }
+    .section-margin {
+        @apply my-10 lg:my-12
+    }
+    
+    .primary-heading {
+        @apply text-xl lg:text-2xl font-bold text-heading
+    }
+    .product-title__small {
+        @apply font-medium
+    }
+
+    .count-number {
+        @apply text-[10px] leading-4 bg-primary text-white text-center w-4 h-4 rounded-full absolute -top-2 -right-3
+    }
+
+    .btn {
+        @apply border rounded px-7 py-3 text-center uppercase font-semibold tracking-widest text-xs
+    }
+    .btn-primary {
+        @apply bg-primary text-white border-primary hover:bg-secondary hover:text-white hover:border-secondary
+    }
+    .btn-secondary {
+        @apply bg-secondary text-white border-secondary hover:bg-primary hover:text-white hover:border-primary
+    }
+    .btn-bordered {
+        @apply bg-transparent text-secondary border-secondary hover:bg-secondary hover:text-white
+    }
+}
